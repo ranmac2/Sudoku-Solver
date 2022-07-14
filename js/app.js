@@ -30,8 +30,6 @@ const joinValues = () => {
 };
 
 const solve = () => {
-  const axios = require("axios");
-
   const options = {
     method: "POST",
     url: "https://solve-sudoku.p.rapidapi.com/",
@@ -53,4 +51,4 @@ const solve = () => {
     });
 };
 
-solveButton.addEventListener("click", joinValues);
+solveButton.addEventListener("click", solve);
