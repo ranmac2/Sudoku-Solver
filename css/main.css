@@ -1,4 +1,9 @@
-#solve-button {
-    display: flex;
-    clear: both;
+#puzzle {
+    height: 450px;
+    width: 450px;
+}
+
+#puzzle input {
+    height: 50px;
+    width: 50px;
 }
