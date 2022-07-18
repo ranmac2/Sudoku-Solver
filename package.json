@@ -2,8 +2,9 @@
   "name": "sudoku-solver",
   "version": "1.0.0",
   "description": "App for solving sudoku puzzles",
-  "main": "index.js",
+  "main": "js/index.js",
   "scripts": {
+    "start:backend": "nodemon js/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -37,7 +37,7 @@ const joinValues = () => {
       submission.push(".");
     }
   });
-  console.log(submission);
+  console.log(submission.join(""));
 };
 
 const populateValues = (isSolvable, solution) => {
@@ -52,30 +52,27 @@ const populateValues = (isSolvable, solution) => {
   }
 };
 
-const solve = () => {
+const solve = async () => {
   joinValues();
-  const data = submission.join("");
-  const options = {
-    method: "POST",
-    url: "https://solve-sudoku.p.rapidapi.com/",
-    headers: {
-      "content-type": "application/json",
-      "X-RapidAPI-Key": process.env.RAPID_API_KEY,
-      "X-RapidAPI-Host": "solve-sudoku.p.rapidapi.com",
-    },
-    data: {
-      puzzle: data,
-    },
-  };
+  const data = { numbers: submission.join("") };
+  console.log("data", data);
 
-  axios
-    .request(options)
-    .then((response) => {
-      console.log(response.data);
-      populateValues(response.data.solvable, response.data.solution);
+  fetch("http://localhost:8000/solve", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success: ", data);
+      populateValues(data.solvable, data.solution);
+      submission = [];
     })
     .catch((error) => {
-      console.error(error);
+      console.error("Error: ", error);
     });
 };
 
