@@ -1,5 +1,6 @@
 const puzzleBoard = document.querySelector("#puzzle");
 const solveButton = document.querySelector("#solve-button");
+const resultsDisplay = document.querySelector(".results-display");
 const squares = 81;
 let submission = [];
 
@@ -16,6 +17,15 @@ for (let i = 0; i < squares; i++) {
   puzzleBoard.style.height = "450px";
   puzzleBoard.style.width = "450px";
   puzzleBoard.appendChild(inputElement);
+  if (
+    ((i % 9 == 0 || i % 9 == 1 || i % 9 == 2) && i < 21) ||
+    ((i % 9 == 6 || i % 9 == 7 || i % 9 == 8) && i < 27) ||
+    ((i % 9 == 3 || i % 9 == 4 || i % 9 == 5) && i > 27 && i < 53) ||
+    ((i % 9 == 0 || i % 9 == 1 || i % 9 == 2) && i > 53) ||
+    ((i % 9 == 6 || i % 9 == 7 || i % 9 == 8) && i > 53)
+  ) {
+    inputElement.style.backgroundColor = "lightgrey";
+  }
 }
 
 const joinValues = () => {
@@ -36,6 +46,9 @@ const populateValues = (isSolvable, solution) => {
     inputs.forEach((input, i) => {
       input.value = solution[i];
     });
+    resultsDisplay.innerHTML = "Puzzle Solved!";
+  } else {
+    resultsDisplay.innerHTML = "Puzzle Unsolvable!";
   }
 };
 
