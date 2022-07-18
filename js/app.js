@@ -12,6 +12,7 @@ for (let i = 0; i < squares; i++) {
   inputElement.style.width = "50px";
   inputElement.style.boxSizing = "border-box";
   inputElement.style.borderSpacing = "0";
+  inputElement.style.border = "1px solid gray";
   puzzleBoard.style.height = "450px";
   puzzleBoard.style.width = "450px";
   puzzleBoard.appendChild(inputElement);
@@ -30,6 +31,8 @@ const joinValues = () => {
 };
 
 const solve = () => {
+  joinValues();
+  const data = submission.join("");
   const options = {
     method: "POST",
     url: "https://solve-sudoku.p.rapidapi.com/",
@@ -38,7 +41,9 @@ const solve = () => {
       "X-RapidAPI-Key": "f0667091famshfafa07dc641d9dep18b515jsn365c9b1f70f4",
       "X-RapidAPI-Host": "solve-sudoku.p.rapidapi.com",
     },
-    data: '{"puzzle":"2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3"}',
+    data: {
+      puzzle: data,
+    },
   };
 
   axios
