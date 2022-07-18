@@ -30,6 +30,15 @@ const joinValues = () => {
   console.log(submission);
 };
 
+const populateValues = (isSolvable, solution) => {
+  const inputs = document.querySelectorAll("input");
+  if (isSolvable && solution) {
+    inputs.forEach((input, i) => {
+      input.value = solution[i];
+    });
+  }
+};
+
 const solve = () => {
   joinValues();
   const data = submission.join("");
@@ -48,10 +57,11 @@ const solve = () => {
 
   axios
     .request(options)
-    .then(function (response) {
+    .then((response) => {
       console.log(response.data);
+      populateValues(response.data.solvable, response.data.solution);
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.error(error);
     });
 };
