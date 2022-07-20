@@ -1,5 +1,16 @@
+body {
+    background-image: url("../img/vintage-sunset-background.png");
+    background-size: cover;
+}
+
 .title {
-    color: green;
+    color: black;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.results-display {
+    color: black;
     text-align: center;
 }
 
@@ -18,6 +29,7 @@
     border: 1px solid gray;
     font-size: 20px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
 }
 
 #solve-button {
@@ -25,5 +37,9 @@
     width: 150px;
     margin: 20px auto;
     display: block;
+    color: black;
+    font-size: 30px;
+    border: 3px solid black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
