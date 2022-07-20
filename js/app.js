@@ -60,7 +60,7 @@ const solve = async () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success: ", data);
+      console.log("Data: ", data);
       populateValues(data.solvable, data.solution);
       submission = [];
     })
