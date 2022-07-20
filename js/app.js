@@ -9,13 +9,6 @@ for (let i = 0; i < squares; i++) {
   inputElement.setAttribute("type", "number");
   inputElement.setAttribute("min", 1);
   inputElement.setAttribute("max", 9);
-  inputElement.style.height = "50px";
-  inputElement.style.width = "50px";
-  inputElement.style.boxSizing = "border-box";
-  inputElement.style.borderSpacing = "0";
-  inputElement.style.border = "1px solid gray";
-  puzzleBoard.style.height = "450px";
-  puzzleBoard.style.width = "450px";
   puzzleBoard.appendChild(inputElement);
   if (
     ((i % 9 == 0 || i % 9 == 1 || i % 9 == 2) && i < 21) ||
